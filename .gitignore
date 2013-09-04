@@ -1,5 +1,6 @@
 ## Settings
 *settings.py
+*.sqlite
 
 *.py[cod]
 
