@@ -1,0 +1,41 @@
+{% load staticfiles %}<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet Quick Start Guide Example</title>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <link rel="stylesheet" href="{% static 'urbanmaps/css/leaflet.css' %}" />
+ <link rel="stylesheet" href="{% static 'urbanmaps/css/MarkerCluster.css' %}" />
+ <link rel="stylesheet" href="{% static 'urbanmaps/css/urbanmaps.css' %}" />
+ <!--[if lte IE 8]>
+     <link rel="stylesheet" href="{% static 'urbanmaps/css/leaflet.ie.css' %}" />
+ <![endif]-->
+</head>
+<body>
+	<div id="map"></div>
+  <script src="{% static 'urbanmaps/js/leaflet.js' %}"></script>
+  <script src="{% static 'urbanmaps/js/leaflet.markercluster.js' %}"></script>
+  <script type="text/javascript">
+    var tileurl = "http://{s}.tile.cloudmade.com/{{ cloudmade_key }}/{{ cloudmade_style }}/256/{z}/{x}/{y}.png"
+  </script>
+  <script src="{% static 'urbanmaps/js/urbanmaps.js' %}"></script>
+  <script type="text/javascript">
+    {% if points %}
+      var markericon = L.icon({
+          iconUrl: '{% static "urbanmaps/img/marker-icon.png" %}',
+          iconRetinaUrl: '{% static "urbanmaps/img/marker-icon-2x.png" %}',
+          shadowUrl: '{% static "urbanmaps/img/marker-shadow.png" %}',
+      });
+      
+      var markers = new L.MarkerClusterGroup();
+      
+      {% for marker in points %}
+        markers.addLayer(new L.marker([{{ marker.lat }}, {{ marker.lon }}], {icon: markericon}));
+      {% endfor %}
+      map.addLayer(markers);
+    {% endif %}
+  </script>
+</body>
+</html>

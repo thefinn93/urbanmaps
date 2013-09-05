@@ -1,3 +1,7 @@
+
+CLOUDMADE_KEY = "..."
+CLOUDMADE_STYLE = "81312"
+
 # Django settings for urbanmaps project.
 
 DEBUG = True
@@ -121,9 +125,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'urbanmaps'
 )
 
 # A sample logging configuration. The only tangible logging
