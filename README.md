@@ -5,7 +5,7 @@ maps of urban things
 
 
 Install
-=========
+---------
 
 From the root of the git repo
 
