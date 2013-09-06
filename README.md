@@ -11,7 +11,7 @@ From the root of the git repo
 
 `cp urbanmaps/example.settings.py urbanmaps/settings.py`
 
-Next, go get an api key from http://cloudmade.com/
+Next, go get an api key from [CloudMade](http://cloudmade.com)
 
 Then, edit urbanmaps/settings.py and insert the api key into CLOUDMADE_KEY="..."
 
