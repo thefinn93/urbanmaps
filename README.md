@@ -13,7 +13,7 @@ From the root of the git repo
 
 Next, go get an api key from http://cloudmade.com/
 
-Then, edit urbanmaps/settings.py and insert the api key into CLOUDFLARE_KEY="..."
+Then, edit urbanmaps/settings.py and insert the api key into CLOUDMADE_KEY="..."
 
 Make sure you have django installed
 `pip install django`
