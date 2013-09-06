@@ -3,6 +3,8 @@ from django.http import Http404
 from django.template import RequestContext, loader
 from django.shortcuts import render
 from django.conf import settings
+from django.core import serializers
+import json
 
 from urbanmaps.models import MapPoint
 
@@ -20,6 +22,7 @@ def info(request):
         return HttpResponse("Please specify a marker id", status=400)
     else:
         try:
-            return HttpResponse(MapPoint.objects.get(id=request.GET['id']).description)
+            data = serializers.serialize('json', MapPoint.objects.filter(pk=request.GET['id']))
+            return HttpResponse(data)
         except MapPoint.DoesNotExist:
             return HttpResponse("Please specify a *valid*  marker id", status=400)

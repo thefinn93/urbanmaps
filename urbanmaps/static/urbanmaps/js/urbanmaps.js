@@ -1,6 +1,27 @@
 function getinfo(id) {
-    $.get("/info?id=" + id).success(function(data) {
-        $("#infobox").text(data).show(250);
+    $.get("/info?id=" + id).success(function(raw) {
+            var data = JSON.parse(raw)[0]['fields']
+            var table = $("<table>")
+                .append($("<tr>")
+                    .append($("<td>").attr("colspan","2")
+                        .append($("<b>")
+                            .append($("<center>")
+                                .text(data['title'])
+                                )
+                            )
+                        )
+                    );
+            for(var key in data) {
+                if(key != 'title') {
+                    table.append($("<tr>")
+                        .append($("<td>").text(key))
+                        .append($("<td>").text(data[key])
+                        )
+                    )
+                }
+            }
+            
+            $("#infobox").html(table).show(250);
         }
     );
 }
