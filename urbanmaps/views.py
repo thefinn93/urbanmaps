@@ -14,3 +14,12 @@ def index(request):
         'cloudmade_style': settings.CLOUDMADE_STYLE
         }
     return render(request, 'urbanmaps/index.html', context)
+
+def info(request):
+    if not "id" in request.GET:
+        return HttpResponse("Please specify a marker id", status=400)
+    else:
+        try:
+            return HttpResponse(MapPoint.objects.get(id=request.GET['id']).description)
+        except MapPoint.DoesNotExist:
+            return HttpResponse("Please specify a *valid*  marker id", status=400)
