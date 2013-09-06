@@ -32,7 +32,9 @@
       var markers = new L.MarkerClusterGroup();
       
       {% for marker in points %}
-        markers.addLayer(new L.marker([{{ marker.lat }}, {{ marker.lon }}], {icon: markericon}));
+        var point{{ marker.id }} = L.marker([{{ marker.lat }}, {{ marker.lon }}], {icon: markericon})
+        point{{ marker.id }}.bindPopup('{{ marker.description}}')
+        markers.addLayer(point{{ marker.id }});
       {% endfor %}
       map.addLayer(markers);
     {% endif %}

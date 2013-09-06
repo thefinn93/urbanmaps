@@ -9,7 +9,6 @@ from urbanmaps import views
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     # url(r'^urbanmaps/', include('urbanmaps.foo.urls')),
-    url(r'^polls/', include('polls.urls', namespace="polls")),
     
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
