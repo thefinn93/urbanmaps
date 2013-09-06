@@ -6,10 +6,17 @@ maps of urban things
 
 Install
 =========
-cd urbanmaps
-cp example.settings.py settings.py
-# Go get an api key from http://cloudmade.com/
-# edit settings.py and insert it into CLOUDFLARE_KEY="..."
-pip install django
-cd ..
-python manage.py runserver
+
+From the root of the git repo
+
+`cp urbanmaps/example.settings.py urbanmaps/settings.py`
+
+Next, go get an api key from http://cloudmade.com/
+
+Then, edit urbanmaps/settings.py and insert the api key into CLOUDFLARE_KEY="..."
+
+Make sure you have django installed
+`pip install django`
+
+Finally, start up the webserver
+`python manage.py runserver`
